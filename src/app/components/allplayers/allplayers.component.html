@@ -1,0 +1,44 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">All Players</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <a routerLink="/addplayer" class="btn btn-success py-3 px-4 mr-3" style="float: right;">Add Player</a>
+  <div class="site-section">
+    <div class="col-lg-12">
+        <div class="widget-next-match">
+            <table class="table custom-table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Poste</th>
+                  <th>Nbr</th>
+                  <th>Age</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of players">
+                  <td>{{p.id}}</td>
+                  <td><strong class="text-white">{{p.name}}</strong></td>
+                  <td><strong class="text-white">{{p.poste}}</strong></td>
+                  <td>{{p.nbr}}</td>
+                  <td>{{p.age}}</td>
+                  <td>
+                    <button class="btn btn-info mr-2" (click)="infoPlayer(p.id)">Info</button>
+                    <button class="btn btn-success mr-2" >Edit</button>
+                    <button class="btn btn-danger" (click)="deletePlayer(p.id)" >Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
