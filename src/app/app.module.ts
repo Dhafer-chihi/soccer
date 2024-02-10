@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+//______________________________________________________________________________//
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,7 +20,6 @@ import { AllplayersComponent } from './components/allplayers/allplayers.componen
 import { AddmatchComponent } from './components/addmatch/addmatch.component';
 import { AddplayerComponent } from './components/addplayer/addplayer.component';
 import { SlideComponent } from './components/slide/slide.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfomatchComponent } from './components/infomatch/infomatch.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MatchComponent } from './components/match/match.component';
@@ -53,7 +57,8 @@ import { InfoplayerComponent } from './components/infoplayer/infoplayer.componen
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
     
   ],
   providers: [],

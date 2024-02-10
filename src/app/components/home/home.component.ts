@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title : string = "World";
+  title : string = " MY World";
   
   currentDate = Date.now();
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.title)
+    // console.log(this.title)
   }
 
 }

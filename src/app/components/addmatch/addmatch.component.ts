@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-addmatch',
@@ -16,7 +17,7 @@ export class AddmatchComponent implements OnInit {
   title : string = "Add Match";
 
 
-  constructor(private router : Router , private activetedRoute : ActivatedRoute) { }
+  constructor(private router : Router , private activetedRoute : ActivatedRoute , private matchService : MatchesService) { }
 
 
   ngOnInit(): void {
@@ -43,16 +44,20 @@ export class AddmatchComponent implements OnInit {
 
     if (this.id !== null){
       //Edit match 
-      for (let i = 0; i < matches.length; i++) {
-        if (matches[i].id === Number(this.id)){
-          matches[i] = this.match
-          console.log(matches[i])
-        }
-      }
+      // for (let i = 0; i < matches.length; i++) {
+      //   if (matches[i].id === Number(this.id)){
+      //     matches[i] = this.match
+      //     console.log(matches[i])
+      //   }
+      // }
+      this.matchService.updateMatch(this.match)
+
     }else{
       //Add match
-      this.match.id = matches.length === 0 ? 1 : matches.at(-1).id + 1
-      matches.push(this.match);//Ajouter l'element dans localStorage
+      // this.match.id = matches.length === 0 ? 1 : matches.at(-1).id + 1
+      // matches.push(this.match);//Ajouter l'element dans localStorage
+
+      this.matchService.addMatch(this.match)
     }
   
     
@@ -62,14 +67,16 @@ export class AddmatchComponent implements OnInit {
   }
 
   getMatchById(){
-    let matches = JSON.parse(localStorage.getItem('matches')||'[]');//Recuperer le tableau du localStorage
+    // let matches = JSON.parse(localStorage.getItem('matches')||'[]');//Recuperer le tableau du localStorage
 
-    for (let i = 0; i < matches.length; i++) {
-      if (matches[i].id === Number(this.id)){
-        this.match = matches[i]
-      }
+    // for (let i = 0; i < matches.length; i++) {
+    //   if (matches[i].id === Number(this.id)){
+    //     this.match = matches[i]
+    //   }
       
-    }
+    // }
+
+    this.matchService.getAllMatches()
   }
 
 }

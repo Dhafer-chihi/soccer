@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validPassword } from 'src/app/shared/matched';
 
 @Component({
   selector: 'app-signup',
@@ -13,11 +14,11 @@ export class SignupComponent implements OnInit {
 
     this.signupForm = this.fb.group({
       firstname : ['' , [Validators.minLength(3) , Validators.required] ],
-      lastname : [''  , Validators.required ],
+      lastname : [''  , [Validators.maxLength(5) , Validators.required] ],
       email : ['' , [Validators.email , Validators.required]],
       password : ['' , Validators.required],
       confirmpassword : ['' , Validators.required]
-    })
+    },{validator : validPassword('password' , 'confirmpassword')})
   }
 
   ngOnInit(): void {

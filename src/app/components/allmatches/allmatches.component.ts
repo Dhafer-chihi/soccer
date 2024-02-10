@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-allmatches',
@@ -10,14 +11,18 @@ export class AllmatchesComponent implements OnInit {
 
   matches : any = [];
 
-  constructor(private router : Router) { }
+  constructor(private router : Router , private matchService : MatchesService) { }
 
   ngOnInit(): void {
     this.getAllMatches();
   }
 
   getAllMatches(){
-    this.matches = JSON.parse(localStorage.getItem("matches")||'[]'); //Afficher les elements enregistrer dans localStrage
+    // this.matches = JSON.parse(localStorage.getItem("matches")||'[]'); //Afficher les elements enregistrer dans localStrage
+    this.matchService.getAllMatches().subscribe((result)=>{
+      console.log(result.matches);
+      this.matches = result.matches
+    })
   }
 
   infoMatch(id : any){
@@ -29,13 +34,15 @@ export class AllmatchesComponent implements OnInit {
   }
 
   deleteMatch(id : any){
-    for (let i = 0; i< this.matches.length; i++) {
-      if (this.matches[i].id === id){
-        this.matches.splice(i , 1);//Supprimer un element du tableau
-        localStorage.setItem('matches' , JSON.stringify(this.matches));//Envoyer le resultat du nouveau tableau au lacalStorage
-      }
+    // for (let i = 0; i< this.matches.length; i++) {
+    //   if (this.matches[i].id === id){
+    //     this.matches.splice(i , 1);//Supprimer un element du tableau
+    //     localStorage.setItem('matches' , JSON.stringify(this.matches));//Envoyer le resultat du nouveau tableau au lacalStorage
+    //   }
      
-    }
+    // }
+    this.matchService.deleteMatch(id)
+
   }
 
 }

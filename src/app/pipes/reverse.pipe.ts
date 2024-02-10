@@ -10,7 +10,7 @@ export class ReversePipe implements PipeTransform {
     let newch = ""
     
     for (let i = 0; i < ch.length; i++) {
-      newch = newch[i] + newch
+      newch = ch[i]+newch
     }
     return newch
   }

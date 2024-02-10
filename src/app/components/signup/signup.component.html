@@ -16,19 +16,40 @@
           <form [formGroup]="signupForm">
             <div class="form-group">
               <input type="text" class="form-control" formControlName="firstname" placeholder="First name">
-              <div *ngIf="signupForm.controls['firstname'].invalid && (signupForm.controls)">Req</div>
-              <div></div>
-              <div></div>
+              <div class="text-danger" *ngIf="signupForm.controls['firstname'].invalid 
+              && (signupForm.controls['firstname'].touched || signupForm.controls['firstname'].dirty)">
+                <div class="text-danger" *ngIf="signupForm.controls['firstname'].errors?.['required']">Req *</div>
+                <div class="text-danger" *ngIf="signupForm.controls['firstname'].errors?.['minlength']">Min Length(3)</div>
+              </div>
+              
             </div>
+
+
             <div class="form-group">
               <input type="text" class="form-control" formControlName="lastname" placeholder="Last name">
+              <div class="text-danger" *ngIf="signupForm.controls['lastname'].invalid 
+              && (signupForm.controls['lastname'].touched || signupForm.controls['lastname'].dirty)">
+                <div class="text-danger" *ngIf="signupForm.controls['lastname'].errors?.['required']">Req *</div>
+                <div class="text-danger" *ngIf="signupForm.controls['lastname'].errors?.['maxlength']">Max length(5)</div>
+              </div>
             </div>
+
+
             <div class="form-group">
                 <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                <div class="text-danger" *ngIf="signupForm.controls['email'].invalid && 
+                (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                  <div class="text-danger" *ngIf="signupForm.controls['email'].errors?.['required']">Req *</div>
+                  <div class="text-danger" *ngIf="signupForm.controls['email'].errors?.['email']">Email invalid</div>
+                </div>
               </div>
+
+
               <div class="form-group">
                 <input type="text" class="form-control" formControlName="password" placeholder="Password">
               </div>
+
+
               <div class="form-group">
                 <input type="text" class="form-control" formControlName="confirmpassword" placeholder="Confirm password">
               </div>
