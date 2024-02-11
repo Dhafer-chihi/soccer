@@ -16,9 +16,6 @@ export class MatchesService {
     return this.http.post<{message : any}>(this.apiMatchUrl , match);
   }
 
-  deleteMatch(id : any){
-    return this.http.delete<{message : any}>(`${this.apiMatchUrl}/${id}`)
-  }
 
   getAllMatches(){
     return this.http.get<{matches : any}>(this.apiMatchUrl)
@@ -26,6 +23,10 @@ export class MatchesService {
 
 
   getMatchById(id : any){
+    return this.http.get<{match : any}>(`${this.apiMatchUrl}/${id}`)
+  }
+
+  deleteMatch(id : any){
     return this.http.delete<{message : any}>(`${this.apiMatchUrl}/${id}`)
   }
   

@@ -6,9 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  
+  userUrl = 'http://localhost:3000/users'
 
-  constructor(private http : HttpClient ) { }//variables privées
+  constructor(private http : HttpClient ) {}//variables privées
+
+  signUp(data : any){
+    return this.http.post<{message : any}>(this.userUrl , data)
+  }
 
 
 

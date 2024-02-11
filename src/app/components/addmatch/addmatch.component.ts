@@ -39,7 +39,7 @@ export class AddmatchComponent implements OnInit {
 
 
   addEditMatch(){
-    let matches = JSON.parse(localStorage.getItem("matches")||'[]');//Recuperer le tableau du localStorage
+    // let matches = JSON.parse(localStorage.getItem("matches")||'[]');//Recuperer le tableau du localStorage
 
 
     if (this.id !== null){
@@ -50,18 +50,22 @@ export class AddmatchComponent implements OnInit {
       //     console.log(matches[i])
       //   }
       // }
-      this.matchService.updateMatch(this.match)
+      this.matchService.updateMatch(this.match).subscribe((result)=>{
+        console.log(result.message)
+      })
 
     }else{
       //Add match
       // this.match.id = matches.length === 0 ? 1 : matches.at(-1).id + 1
       // matches.push(this.match);//Ajouter l'element dans localStorage
 
-      this.matchService.addMatch(this.match)
+      this.matchService.addMatch(this.match).subscribe((result)=>{
+        console.log(result.message) ;
+      })
     }
   
     
-    localStorage.setItem('matches' , JSON.stringify(matches));//Evoyer le nouveau tableau au lacalStorage
+    // localStorage.setItem('matches' , JSON.stringify(matches));//Evoyer le nouveau tableau au lacalStorage
     this.router.navigate(['/allmatches']);//Redirection vers la page all matches apres l'ajout 
     
   }
@@ -76,7 +80,10 @@ export class AddmatchComponent implements OnInit {
       
     // }
 
-    this.matchService.getAllMatches()
+    this.matchService.getMatchById(this.id).subscribe((result)=>{
+      console.log(result.match)
+      this.match = result.match //Mettre le resultat dans l'objet match
+    })
   }
 
 }

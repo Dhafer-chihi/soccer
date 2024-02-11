@@ -26,9 +26,9 @@
                   <td>{{m.scoreOne}}</td>
                   <td>{{m.scoreTwo}}</td>
                   <td>
-                    <button class="btn btn-info mr-2" (click)="infoMatch(m.id)">Info</button>
-                    <button class="btn btn-success mr-2" (click)="editMatch(m.id , 'editmatch')" >Edit</button>
-                    <button class="btn btn-danger" (click)="deleteMatch(m.id)" >Delete</button>
+                    <button class="btn btn-info mr-2" (click)="infoMatch(m._id)">Info</button>
+                    <button class="btn btn-success mr-2" (click)="editMatch(m._id , 'editmatch')" >Edit</button>
+                    <button class="btn btn-danger" (click)="deleteMatch(m._id)" >Delete</button>
                   </td>
                 </tr>
               </tbody>

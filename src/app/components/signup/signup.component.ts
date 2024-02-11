@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 import { validPassword } from 'src/app/shared/matched';
 
 @Component({
@@ -10,7 +11,7 @@ import { validPassword } from 'src/app/shared/matched';
 export class SignupComponent implements OnInit {
   signupForm !: FormGroup 
   user : any = {}
-  constructor(private fb : FormBuilder) { 
+  constructor(private fb : FormBuilder , private userService : UsersService) { 
 
     this.signupForm = this.fb.group({
       firstname : ['' , [Validators.minLength(3) , Validators.required] ],
@@ -35,5 +36,9 @@ export class SignupComponent implements OnInit {
 
   signup(){
     console.log(this.signupForm.value)
+    this.userService.signUp(this.signupForm.value).subscribe((result)=>{
+      console.log(result.message)
+    })
+
   }
 }
