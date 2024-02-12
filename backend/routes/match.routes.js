@@ -1,6 +1,7 @@
 const express = require('express')
-const route = express.Router()
 const Match = require('../models/match')
+
+const route = express.Router()
 
 
 //Add match 
@@ -50,7 +51,13 @@ route.delete('/:id' , (req , res)=>{
 
 
 //Edit match 
-route.patch('')
+route.patch('/', (req , res)=>{
+    console.log("req" , req.body);
+
+    Match.updateOne({_id : req.body._id} , req.body).then(()=>{
+        res.status(200).json({message : "Match edited with success"})
+    })
+})
 
 
 
