@@ -29,7 +29,7 @@ const routes: Routes = [
   {path : 'editplayer/:idPlayer' , component : AddplayerComponent},
 
 
-  {path : 'signup' , component : SignupComponent},
+  {path : 'users' , component : SignupComponent},
   
 ];
 

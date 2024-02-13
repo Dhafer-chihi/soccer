@@ -6,12 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  userUrl = 'http://localhost:3000/users'
+  apiUserUrl : any = 'http://localhost:3000/users'
 
   constructor(private http : HttpClient ) {}//variables privées
 
   signUp(data : any){
-    return this.http.post<{message : any}>(this.userUrl , data)
+    return this.http.post<{message : any}>(this.apiUserUrl , data)
+  }
+
+
+  login(data : any){
+    return this.http.post<{message : any}>(this.apiUserUrl , data)
   }
 
 

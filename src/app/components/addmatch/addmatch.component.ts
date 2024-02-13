@@ -61,6 +61,7 @@ export class AddmatchComponent implements OnInit {
 
       this.matchService.addMatch(this.match).subscribe((result)=>{
         console.log(result.message) ;
+        alert('Match adedd with success')
       })
     }
   

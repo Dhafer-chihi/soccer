@@ -38,6 +38,8 @@ export class SignupComponent implements OnInit {
     console.log(this.signupForm.value)
     this.userService.signUp(this.signupForm.value).subscribe((result)=>{
       console.log(result.message)
+      alert('User adedd with success')
+      this.signupForm.reset()
     })
 
   }

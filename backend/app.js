@@ -29,6 +29,7 @@ app.use(express.json())
 
 app.use("/matches" , require('./routes/match.routes'))
 app.use("/users" , require('./routes/user.routes'))
+app.use("/players" , require('./routes/player.routes'))
 
 console.log("server run")
 

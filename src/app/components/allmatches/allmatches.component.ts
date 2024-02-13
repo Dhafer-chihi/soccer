@@ -41,6 +41,9 @@ export class AllmatchesComponent implements OnInit {
     //   }
      
     // }
+    
+      
+    
     this.matchService.deleteMatch(id).subscribe((result)=>{
       console.log(result.message); 
       this.getAllMatches();
