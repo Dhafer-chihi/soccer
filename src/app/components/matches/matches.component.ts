@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-matches',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MatchesComponent implements OnInit {
 
   matches : any = [];
-  constructor() { }
+  constructor(private matchServices : MatchesService) { }
 
   ngOnInit(): void {
     this.getAllMatches();
@@ -16,8 +17,13 @@ export class MatchesComponent implements OnInit {
 
 
   getAllMatches(){
-    this.matches = JSON.parse(localStorage.getItem("matches")||'[]')
-    console.log(this.matches)
+    // this.matches = JSON.parse(localStorage.getItem("matches")||'[]')
+    // console.log(this.matches)
+
+    this.matchServices.getAllMatches().subscribe((result)=>{
+      console.log(result.matches)
+      this.matches = result.matches
+    })
 
   }
 }

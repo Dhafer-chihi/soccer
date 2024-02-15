@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-infomatch',
@@ -13,7 +14,7 @@ export class InfomatchComponent implements OnInit {
   match : any = {};
   
   
-  constructor(private activatedRoute : ActivatedRoute) { }
+  constructor(private activatedRoute : ActivatedRoute , private matchService : MatchesService) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('idMatch');//Recupérer id de l'element
@@ -23,23 +24,28 @@ export class InfomatchComponent implements OnInit {
   }
 
  getMatchById(){
-  let matches = JSON.parse(localStorage.getItem("matches")||'[]');//Recupérer la liste des elements 
+  // let matches = JSON.parse(localStorage.getItem("matches")||'[]');//Recupérer la liste des elements 
 
-  for (let i = 0; i < matches.length; i++) {
-    if (matches[i].id === Number(this.id))
-    {
-     this.match = matches[i]
-    }
-    console.log(matches[i])
-  }
+  // for (let i = 0; i < matches.length; i++) {
+  //   if (matches[i].id === Number(this.id))
+  //   {
+  //    this.match = matches[i]
+  //   }
+  //   console.log(matches[i])
+  // }
+
+  this.matchService.getMatchById(this.id).subscribe((result)=>{
+    console.log(result.match)
+    this.match = result.match
+  })
   
  }
 
  compare(a:any , b:any){
 
-  if (a>b) {
+  if (Number(a)>Number(b)) {
     return ['Win' , 'green']
-  }else if(a<b){
+  }else if(Number(a)<Number(b)){
     return ['Loss' , 'yellow']
   }else{
     return ['Draw' , 'purple']
