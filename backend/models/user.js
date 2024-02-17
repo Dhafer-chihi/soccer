@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const userSchema = mongoose.Schema({
     firstname : String,
     lastname : String,
-    eamil : {type : String , unique : true , required : true},
+    eamil : {type : String},
     password : String
 })
 

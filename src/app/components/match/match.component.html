@@ -6,12 +6,12 @@
         <div class="d-flex team-vs mt-1">
           <span class="score"><span>{{match.scoreOne}}</span>-<span>{{match.scoreTwo}}</span></span>
           <div class="team-1 w-50">
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger" (click)="passId()" >Delete</button>
             <div class="team-details w-100 text-center">
               <img src="assets/images/logo_1.png" alt="Image" class="img-fluid">
               <h3>{{match.teamOne}}</h3>
               <ul class="list-unstyled">
-                <li>Anja Landry (7)</li>
+                <li>{{match._id}}</li>
                 <li>Eadie Salinas (12)</li>
                 <li>Ashton Allen (10)</li>
                 <li>Baxter Metcalfe (5)</li>

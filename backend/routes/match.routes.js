@@ -6,13 +6,13 @@ const route = express.Router()
 
 //Add match 
 route.post('/' , (req , res)=>{
-    const data = new Match({
-        teamOne : req.body.teamOne,
-        teamTwo : req.body.teamTwo,
-        scoreOne : req.body.scoreOne,
-        scoreTwo : req.body.scoreTwo
+    const data = new Match({teamOne , teamTwo , scoreOne , scoreTwo } = req.body)
+        // teamOne : req.body.teamOne,
+        // teamTwo : req.body.teamTwo,
+        // scoreOne : req.body.scoreOne,
+        // scoreTwo : req.body.scoreTwo
         
-    })
+    
     data.save().then(()=>{
         res.status(200).json({message : 'match added with success' , data})
     })

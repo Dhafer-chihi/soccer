@@ -11,6 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MatchComponent } from './components/match/match.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { InfoplayerComponent } from './components/infoplayer/infoplayer.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -30,6 +31,8 @@ const routes: Routes = [
 
 
   {path : 'users' , component : SignupComponent},
+
+  {path : 'login' , component : LoginComponent}
   
 ];
 

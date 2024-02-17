@@ -3,12 +3,12 @@ const route = express.Router()
 const Player = require('../models/player')
 
 route.post('/' , (req ,res)=>{
-    const data = new Player({
-        name : req.body.name,
-        poste : req.body.poste,
-        nbr : req.body.nbr,
-        age : req.body.age  
-    })
+    const data = new Player({ name , poste , nbr , age
+        // name : req.body.name,
+        // poste : req.body.poste,
+        // nbr : req.body.nbr,
+        // age : req.body.age  
+    }=req.body)
     data.save().then(()=>{
         res.json({message : 'player added with success'})
     })

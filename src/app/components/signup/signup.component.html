@@ -13,7 +13,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-7">
+          
           <form [formGroup]="signupForm">
+            
             <div class="form-group">
               <input type="text" class="form-control" formControlName="firstname" placeholder="First name">
               <div class="text-danger" *ngIf="signupForm.controls['firstname'].invalid 
@@ -57,7 +59,7 @@
             
             <div class="form-group">
               <input type="button" (click)="signup()" class="btn btn-primary py-3 px-5" value="Sign up">
-            </div>
+           </div>
           </form>  
         </div>
       </div>

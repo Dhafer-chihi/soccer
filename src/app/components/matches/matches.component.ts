@@ -26,4 +26,14 @@ export class MatchesComponent implements OnInit {
     })
 
   }
+
+
+  deleteMatch(id : any){
+    console.log('here into parent')
+
+    this.matchServices.deleteMatch(id).subscribe((result)=>{
+      console.log(result.message)
+      this.getAllMatches()
+    })
+  }
 }

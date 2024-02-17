@@ -28,6 +28,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { MyFilterPipe } from './pipes/my-filter.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { InfoplayerComponent } from './components/infoplayer/infoplayer.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { InfoplayerComponent } from './components/infoplayer/infoplayer.componen
     ReversePipe,
     MyFilterPipe,
     ReplacePipe,
-    InfoplayerComponent
+    InfoplayerComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
