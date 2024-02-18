@@ -3,7 +3,7 @@ const route = express.Router()
 const Player = require('../models/player')
 
 route.post('/' , (req ,res)=>{
-    const data = new Player({ name , poste , nbr , age
+    const data = new Player({ name , poste , nbr , age , teamId
         // name : req.body.name,
         // poste : req.body.poste,
         // nbr : req.body.nbr,
@@ -15,7 +15,7 @@ route.post('/' , (req ,res)=>{
 })
 
 route.get('/' , (req ,res)=>{
-    Player.find().then((objectfinded)=>{
+    Player.find().populate('teamId').then((objectfinded)=>{
         res.status(200).json({players : objectfinded})
     })
 })

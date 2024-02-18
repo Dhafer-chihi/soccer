@@ -21,16 +21,18 @@
                   <th>Poste</th>
                   <th>Nbr</th>
                   <th>Age</th>
+                  <th>Team</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let p of players">
+                <tr *ngFor="let p of players ; let id = index">
                   <td>{{p.id}}</td>
                   <td><strong class="text-white">{{p.name}}</strong></td>
                   <td><strong class="text-white">{{p.poste}}</strong></td>
                   <td>{{p.nbr}}</td>
                   <td>{{p.age}}</td>
+                  <td>{{p.teamId.teamName}}</td>
                   <td>
                     <button class="btn btn-info mr-2" (click)="infoPlayer(p._id)">Info</button>
                     <button class="btn btn-success mr-2" >Edit</button>

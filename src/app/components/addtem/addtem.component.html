@@ -1,0 +1,25 @@
+<app-banner [title]="title"></app-banner>
+
+
+  
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <form #teamForm="ngForm"  (ngSubmit)="addTeam()">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="team.teamName" [ngModelOptions]="{standalone : true}"  placeholder="Team Name">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="team.teamCountry" [ngModelOptions]="{standalone : true}" placeholder="Team Country">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-success py-3 mr-3 px-5" value="{{title}}">
+              <a routerLink="/allmatches" class="btn btn-danger py-3 px-5">Retour</a>
+
+            </div>
+          </form>  
+        </div>
+      </div>
+    </div>
+  </div>

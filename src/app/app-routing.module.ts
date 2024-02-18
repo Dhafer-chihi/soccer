@@ -12,6 +12,8 @@ import { MatchComponent } from './components/match/match.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { InfoplayerComponent } from './components/infoplayer/infoplayer.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddtemComponent } from './components/addtem/addtem.component';
+import { AllteamsComponent } from './components/allteams/allteams.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path : 'infoplayer/:idPlayer' , component : InfoplayerComponent},
   {path : 'editplayer/:idPlayer' , component : AddplayerComponent},
 
+  {path : 'addteam' , component : AddtemComponent},
+  {path : 'allteams' , component : AllteamsComponent},
 
   {path : 'users' , component : SignupComponent},
 

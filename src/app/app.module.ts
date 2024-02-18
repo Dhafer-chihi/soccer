@@ -29,6 +29,8 @@ import { MyFilterPipe } from './pipes/my-filter.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { InfoplayerComponent } from './components/infoplayer/infoplayer.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllteamsComponent } from './components/allteams/allteams.component';
+import { AddtemComponent } from './components/addtem/addtem.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { LoginComponent } from './components/login/login.component';
     ReplacePipe,
     InfoplayerComponent,
     LoginComponent,
+    AllteamsComponent,
+    AddtemComponent,
   ],
   imports: [
     BrowserModule,

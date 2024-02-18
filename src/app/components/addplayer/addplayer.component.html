@@ -26,6 +26,12 @@
             <div class="form-group">
               <input type="number" class="form-control" [(ngModel)]="player.age" [ngModelOptions]="{standalone : true}" placeholder="Player age">
             </div>
+
+            <div class="form-group">
+              <select class="form-control" name="c" [(ngModel)]="player.teamId">
+                <option [value]="t._id" *ngFor="let t of teams">{{t.teamName}}</option>
+              </select>
+            </div>
             
             <div class="form-group">
               <input type="submit" class="btn btn-success py-3 mr-3 px-5" value="Add Player">

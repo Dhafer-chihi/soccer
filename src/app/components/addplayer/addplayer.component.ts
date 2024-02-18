@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayersService } from 'src/app/services/players.service';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-addplayer',
@@ -12,11 +13,19 @@ export class AddplayerComponent implements OnInit {
 
   palyerForm !: FormGroup;
   player : any = {};
+  teams : any = []
 
+  constructor(private router : Router , private playersService : PlayersService , private teamService : TeamService) { }
 
-  constructor(private router : Router , private playersService : PlayersService) { }
+  ngOnInit(): void {    
+    this.getAllTeams()
+  }
 
-  ngOnInit(): void {
+  getAllTeams(){
+    this.teamService.getAllTeam().subscribe((result)=>{
+      console.log('all teams' , result.teams)
+      this.teams = result.teams
+    })
   }
 
   addPlayer(){
@@ -36,8 +45,11 @@ export class AddplayerComponent implements OnInit {
     // players.push(this.player)
     // localStorage.setItem('players' , JSON.stringify(players));
 
+
+
+
     this.playersService.addPlayer(this.player).subscribe((result)=>{
-      console.log(result.message)
+      console.log('player' , result.message)
     })
     
     this.router.navigate(['/allplayers'])
