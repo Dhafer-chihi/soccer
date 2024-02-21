@@ -18,11 +18,13 @@ export class SignupComponent implements OnInit {
       lastname : [''  , [Validators.maxLength(5) , Validators.required] ],
       email : ['' , [Validators.email , Validators.required]],
       password : ['' , Validators.required],
-      confirmpassword : ['' , Validators.required]
+      confirmpassword : ['' , Validators.required],
+      role : [window.location.pathname === "/adminSignup" ? 'admin' : 'user' ]
     },{validator : validPassword('password' , 'confirmpassword')})
   }
 
   ngOnInit(): void {
+    console.log(window.location)
     
   }
 

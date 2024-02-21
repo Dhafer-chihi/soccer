@@ -34,7 +34,9 @@ const routes: Routes = [
   {path : 'addteam' , component : AddtemComponent},
   {path : 'allteams' , component : AllteamsComponent},
 
-  {path : 'users' , component : SignupComponent},
+  {path : 'userSignup' , component : SignupComponent},
+  {path : 'adminSignup' , component : SignupComponent},
+
 
   {path : 'login' , component : LoginComponent}
   
