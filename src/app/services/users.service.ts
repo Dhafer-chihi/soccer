@@ -16,7 +16,7 @@ export class UsersService {
 
 
   login(data : any){
-    return this.http.post<{message : any}>(this.apiUserUrl + '/login', data)
+    return this.http.post<{message : any, user : any}>(this.apiUserUrl + '/login', data)
   }
 
 

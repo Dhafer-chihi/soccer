@@ -31,6 +31,7 @@ import { InfoplayerComponent } from './components/infoplayer/infoplayer.componen
 import { LoginComponent } from './components/login/login.component';
 import { AllteamsComponent } from './components/allteams/allteams.component';
 import { AddtemComponent } from './components/addtem/addtem.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AddtemComponent } from './components/addtem/addtem.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    RouterModule
     
   ],
   providers: [],

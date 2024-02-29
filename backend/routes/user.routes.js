@@ -1,7 +1,12 @@
 const express = require('express')
 const brypt = require('bcrypt')
+const jwt = require ('jsonwebtoken')
 const route = express.Router()
 const User = require('../models/user')
+
+
+
+const secretKey = 'your-secret-key'
 
 
 
@@ -39,7 +44,8 @@ route.post('/login' , (req , res)=>{
        if (!trusted) {
         res.status(200).json({message : "Password not valid" })
        } else {
-        res.status(200).json({message : "Welcom" })
+        const token = jwt.sign({user : findedUser} , secretKey)
+        res.status(200).json({message : "Welcom" , user : token})
        }
     })
     

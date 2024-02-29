@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup,} from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   login(){
     console.log(this.user);
     this.userService.login(this.user).subscribe((result)=>{
-      console.log(result.message);
-      
+      console.log(result.message , result.user);
+      sessionStorage.setItem('connectedUser' , result.user)
     })
     
   }
