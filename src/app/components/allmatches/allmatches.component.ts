@@ -10,6 +10,8 @@ import { MatchesService } from 'src/app/services/matches.service';
 export class AllmatchesComponent implements OnInit {
 
   matches : any = [];
+  select : any
+  parentSelector : boolean = false
 
   constructor(private router : Router , private matchService : MatchesService) { }
 
@@ -50,6 +52,31 @@ export class AllmatchesComponent implements OnInit {
 
     })
 
+  }
+
+  
+  onChangeSelect($event : any){
+    const id = $event.target.value
+    const isChecked = $event.target.checked
+    console.log(id , isChecked)
+
+    this.matches = this.matches.map((m : any)=>{
+     for (let id = -1; id < this.matches.length; id++) {
+      if (m.id == id){
+        m.select = isChecked
+        this.parentSelector = false
+        return m
+      }
+      if(id == -1){
+        m.select = this.parentSelector
+        return m
+      }
+        return m 
+      
+     }
+      
+    })
+    console.log(this.matches)
   }
 
 }

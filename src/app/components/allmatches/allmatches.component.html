@@ -10,6 +10,10 @@
             <table class="table custom-table">
               <thead>
                 <tr>
+                  <th>
+                    <input type="checkbox" [value]="-1" [checked]="" [(ngModel)]="parentSelector"
+                    (change)="onChangeSelect($event)">
+                  </th>
                   <th>Id</th>
                   <th>Team One</th>
                   <th>Team Two</th>
@@ -19,8 +23,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let m of matches ; let id=index">
-                  <td>{{m.id}}</td>
+                <tr *ngFor="let m of matches ; let id= index">
+                  <td>
+                    <input type="checkbox" [value]="id" [checked]="m.select" 
+                    (change)="onChangeSelect($event)">
+                  </td>
+                  <td>{{id}}</td>
                   <td><strong class="text-white">{{m.teamOne}}</strong></td>
                   <td><strong class="text-white">{{m.teamTwo}}</strong></td>
                   <td>{{m.scoreOne}}</td>

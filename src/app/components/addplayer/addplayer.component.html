@@ -32,7 +32,15 @@
                 <option [value]="t._id" *ngFor="let t of teams">{{t.teamName}}</option>
               </select>
             </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="button" (click)="filePicker.click()">Selectionner image</button>
+            </div>
+            <div class="from-group">
+              <input type="file" class="from-control"  #filePicker  (change)="onImageSelect($event)" >
+            </div><br>
+            <img [src]="imagePreview" alt="img" style="width: 200px;">
             
+            <br>
             <div class="form-group">
               <input type="submit" class="btn btn-success py-3 mr-3 px-5" value="Add Player">
               <a routerLink="/allplayers" class="btn btn-danger py-3 px-5">Retour</a>

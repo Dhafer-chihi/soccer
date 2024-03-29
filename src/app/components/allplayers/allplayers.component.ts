@@ -42,4 +42,7 @@ export class AllplayersComponent implements OnInit {
       this.getAllPlayers()
     })
   }
+
+
+  
 }

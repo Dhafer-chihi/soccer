@@ -11,6 +11,7 @@ import { TeamService } from 'src/app/services/team.service';
 })
 export class AddplayerComponent implements OnInit {
 
+  imagePreview = ""
   palyerForm !: FormGroup;
   player : any = {};
   teams : any = []
@@ -54,8 +55,20 @@ export class AddplayerComponent implements OnInit {
     
     this.router.navigate(['/allplayers'])
    
+  }
 
 
+  onImageSelect(event : any){
+    // const file = (event.target as HTMLInputElement).files[0]
+    const file = event.target.files[0]
+    // console.log(file)
+
+    const reader = new FileReader()
+    reader.onload = ()=>{
+      this.imagePreview = reader.result as string //convertir reader result en string  
+      
+    }
+    reader.readAsDataURL(file)// crer un url pour afficher l'image
   }
   
 }

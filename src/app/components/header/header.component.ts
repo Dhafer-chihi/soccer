@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
   isLogged(){
     const token = sessionStorage.getItem('connectedUser')
 

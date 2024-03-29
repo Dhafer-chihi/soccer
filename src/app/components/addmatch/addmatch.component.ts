@@ -43,7 +43,7 @@ export class AddmatchComponent implements OnInit {
 
 
     if (this.id !== null){
-      //Edit match 
+      // Edit match 
       // for (let i = 0; i < matches.length; i++) {
       //   if (matches[i].id === Number(this.id)){
       //     matches[i] = this.match
